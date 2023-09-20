@@ -2,7 +2,7 @@ package br.com.ifpe.oxefood.api.cliente;
 
 import javax.validation.Valid;
 
-import java.util.List;
+import java.util.List; 
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -62,7 +62,7 @@ public class ClienteController {
         return clienteService.findById(id);
     }
 
-    @ApiOperation(value = "Serviço responsável por alterar um cliente do sistema.")
+    @ApiOperation(value = "Serviço responsável por alterar um cliente no sistema.")
     @PutMapping("/{id}")
    public ResponseEntity<Cliente> update(@PathVariable("id") Long id, @RequestBody ClienteRequest request) {
 
