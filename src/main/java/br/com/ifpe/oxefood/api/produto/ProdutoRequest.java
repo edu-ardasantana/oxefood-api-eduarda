@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProdutoRequest {
 
+    private Long idCategoria;
+
     private String titulo;
 
     private String codigo;
@@ -24,20 +26,16 @@ public class ProdutoRequest {
 
     private Integer tempoEntregaMaximo;
 
-    public Produto build()  {
+    public Produto build() {
 
-            return Produto.builder()
+       return Produto.builder()
                .titulo(titulo)
-               .codigo(codigo)
-               .descricao(descricao)
-               .valorUnitario(valorUnitario)
-               .tempoEntregaMinimo(tempoEntregaMinimo)
-               .tempoEntregaMaximo(tempoEntregaMaximo)
-               .build();
+                .codigo(codigo)
+                .descricao(descricao)
+                .valorUnitario(valorUnitario)
+                .tempoEntregaMinimo(tempoEntregaMinimo)
+                .tempoEntregaMaximo(tempoEntregaMaximo)
+                .build();
+   }
 
-
-    }
-
-    
 }
-
