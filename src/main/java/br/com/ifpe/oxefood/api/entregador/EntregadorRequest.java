@@ -2,8 +2,6 @@ package br.com.ifpe.oxefood.api.entregador;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.ifpe.oxefood.modelo.entregador.Entregador;
