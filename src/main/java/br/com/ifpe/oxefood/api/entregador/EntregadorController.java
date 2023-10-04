@@ -2,6 +2,8 @@ package br.com.ifpe.oxefood.api.entregador;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -18,7 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+ 
 import br.com.ifpe.oxefood.modelo.entregador.Entregador;
 import br.com.ifpe.oxefood.modelo.entregador.EntregadorService;
 
@@ -32,7 +34,7 @@ public class EntregadorController {
 
     @ApiOperation(value = "Serviço responsável por salvar um entregador no sistema.")
     @PostMapping
-    public ResponseEntity<Entregador> save(@RequestBody EntregadorRequest request) {
+    public ResponseEntity<Entregador> save(@RequestBody @Valid EntregadorRequest request) {
 
         Entregador entregador = entregadorService.save(request.build());
         return new ResponseEntity<Entregador>(entregador, HttpStatus.CREATED);
@@ -62,7 +64,7 @@ public class EntregadorController {
 
     @ApiOperation(value = "Serviço responsável por alterar um entregador no sistema.")
     @PutMapping("/{id}")
-    public ResponseEntity<Entregador> update(@PathVariable("id") Long id, @RequestBody EntregadorRequest request) {
+    public ResponseEntity<Entregador> update(@PathVariable("id") Long id, @RequestBody @Valid EntregadorRequest request) {
 
         entregadorService.update(id, request.build());
         return ResponseEntity.ok().build();

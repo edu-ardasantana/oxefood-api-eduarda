@@ -30,7 +30,7 @@ public class CategoriaProdutoController {
 
     @PostMapping
     public ResponseEntity<CategoriaProduto> save(@RequestBody @Valid CategoriaProdutoRequest request) {
-
+ 
         CategoriaProduto categoriaProdutoNovo = request.build();
         CategoriaProduto categoriaProduto = categoriaProdutoService.save(categoriaProdutoNovo);
         return new ResponseEntity<CategoriaProduto>(categoriaProduto, HttpStatus.CREATED);
@@ -49,7 +49,7 @@ public class CategoriaProdutoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoriaProduto> update(@PathVariable("id") Long id, @RequestBody CategoriaProdutoRequest request) {
+    public ResponseEntity<CategoriaProduto> update(@PathVariable("id") Long id, @RequestBody @Valid CategoriaProdutoRequest request) {
 
         categoriaProdutoService.update(id, request.build());
         return ResponseEntity.ok().build();

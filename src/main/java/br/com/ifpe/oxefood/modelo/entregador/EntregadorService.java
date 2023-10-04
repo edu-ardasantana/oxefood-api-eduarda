@@ -23,7 +23,7 @@ public class EntregadorService {
        entregador.setDataCriacao(LocalDate.now());
        return repository.save(entregador);
     }
-
+ 
     public List<Entregador> findAll() {
   
         return repository.findAll();

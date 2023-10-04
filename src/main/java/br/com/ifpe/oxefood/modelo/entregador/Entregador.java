@@ -16,7 +16,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
 @Table(name="Entregador")
 @Where(clause ="habilitado = true")
@@ -28,19 +27,19 @@ import lombok.Setter;
 public class Entregador extends EntidadeAuditavel {
     
     
-        @Column
+        @Column(nullable = false, length = 100)
         private String nome;
 
         @Column(name = "DT_NASC")
         private LocalDate dataNascimento;
 
-        @Column
+        @Column(unique = true, nullable = false)
         private String cpf;
 
         @Column
         private String rg;
 
-        @Column
+        @Column(nullable = false)
         private String foneCelular;
 
         @Column

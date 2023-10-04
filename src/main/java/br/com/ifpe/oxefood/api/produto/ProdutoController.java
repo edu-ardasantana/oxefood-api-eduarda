@@ -70,7 +70,7 @@ public class ProdutoController {
 
     @ApiOperation(value = "Serviço responsável por alterar um produto no sistema.")
     @PutMapping("/{id}")
-    public ResponseEntity<Produto> update(@PathVariable("id") Long id, @RequestBody ProdutoRequest request) {
+    public ResponseEntity<Produto> update(@PathVariable("id") Long id, @RequestBody @Valid ProdutoRequest request) {
 
         Produto produto = request.build();
         produto.setCategoria(categoriaProdutoService.findById(request.getIdCategoria()));
