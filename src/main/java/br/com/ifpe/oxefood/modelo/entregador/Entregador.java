@@ -8,7 +8,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
-
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,16 +16,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="Entregador")
-@Where(clause ="habilitado = true")
+@Table(name = "Entregador")
+@Where(clause = "habilitado = true")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Entregador extends EntidadeAuditavel {
-    
-    
+
+        @Column
+        private String email;
+
         @Column(nullable = false, length = 100)
         private String nome;
 
@@ -44,7 +45,7 @@ public class Entregador extends EntidadeAuditavel {
 
         @Column
         private String foneFixo;
-      
+
         @Column
         private Integer qtdEntregasRealizadas;
 
@@ -71,5 +72,5 @@ public class Entregador extends EntidadeAuditavel {
 
         @Column
         private Boolean ativo;
-    
+
 }

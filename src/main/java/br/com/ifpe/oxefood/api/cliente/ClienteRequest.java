@@ -2,6 +2,7 @@ package br.com.ifpe.oxefood.api.cliente;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -16,16 +17,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data //substitui getter e setter
+@Data // substitui getter e setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClienteRequest {
- 
+
    @NotNull(message = "O Nome é de preenchimento obrigatório")
    @NotBlank(message = "O Nome é de preenchimento obrigatório")
    @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
    private String nome;
+
+   @NotBlank(message = "O Email é de preenchimento obrigatório")
+   @Email
+   private String email;
 
    @JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate dataNascimento;
@@ -42,12 +47,13 @@ public class ClienteRequest {
 
    public Cliente build() {
 
-       return Cliente.builder()
-               .nome(nome)
-               .dataNascimento(dataNascimento)
-               .cpf(cpf)
-               .foneCelular(foneCelular)
-               .foneFixo(foneFixo)
-               .build();
+      return Cliente.builder()
+            .nome(nome)
+            .email(email)
+            .dataNascimento(dataNascimento)
+            .cpf(cpf)
+            .foneCelular(foneCelular)
+            .foneFixo(foneFixo)
+            .build();
    }
 }

@@ -2,6 +2,7 @@ package br.com.ifpe.oxefood.api.entregador;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
@@ -20,6 +21,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EntregadorRequest {
+
+    @NotBlank(message = "O Email é de preenchimento obrigatório")
+    @Email
+    private String email;
 
     @NotBlank(message = "O Nome é de preenchimento obrigatório")
     @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
@@ -61,6 +66,7 @@ public class EntregadorRequest {
     public Entregador build() {
 
         return Entregador.builder()
+                .email(email)
                 .nome(nome)
                 .dataNascimento(dataNascimento)
                 .cpf(cpf)
