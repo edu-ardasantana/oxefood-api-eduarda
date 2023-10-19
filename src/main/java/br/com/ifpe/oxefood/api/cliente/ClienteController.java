@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ifpe.oxefood.modelo.cliente.Cliente;
 import br.com.ifpe.oxefood.modelo.cliente.ClienteService;
 import br.com.ifpe.oxefood.modelo.cliente.EnderecoCliente;
-import br.com.ifpe.oxefood.modelo.produto.Produto;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;

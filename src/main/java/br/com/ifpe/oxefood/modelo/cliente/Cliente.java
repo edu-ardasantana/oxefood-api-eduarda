@@ -6,17 +6,23 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
+import br.com.ifpe.oxefood.modelo.acesso.Usuario;
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Builder;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "Cliente")
@@ -28,7 +34,12 @@ import lombok.Builder;
 @NoArgsConstructor
 public class Cliente extends EntidadeAuditavel {
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Usuario usuario;
+
     @OneToMany(mappedBy = "cliente", orphanRemoval = true, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
     private List<EnderecoCliente> enderecos;
 
     @Column
@@ -48,5 +59,5 @@ public class Cliente extends EntidadeAuditavel {
 
     @Column
     private String foneFixo;
- 
+
 }
