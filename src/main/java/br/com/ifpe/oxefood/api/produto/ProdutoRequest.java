@@ -1,9 +1,5 @@
 package br.com.ifpe.oxefood.api.produto;
 
-import javax.validation.constraints.NotBlank;
-
-import org.hibernate.validator.constraints.Length;
-
 import br.com.ifpe.oxefood.modelo.produto.Produto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,35 +12,30 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProdutoRequest {
 
-   @NotBlank(message = "O id da categoria é de preenchimento obrigatório")
-    private Long idCategoria;
+   private Long idCategoria;
 
-   @NotBlank(message = "O Título é de preenchimento obrigatório")
-   @Length(max = 100, message = "O Título deverá ter no máximo {max} caracteres")
-    private String titulo;
+   private String titulo;
 
-    @NotBlank(message = "O Código do produto é de preenchimento obrigatório")
-    private String codigo;
+   private String codigo;
 
-    private String descricao;
+   private String descricao;
 
-    @NotBlank(message = "O valor unitário é de preenchimento obrigatório")
-    private Double valorUnitario;
+   private Double valorUnitario;
 
-    private Integer tempoEntregaMinimo;
+   private Integer tempoEntregaMinimo;
 
-    private Integer tempoEntregaMaximo;
+   private Integer tempoEntregaMaximo;
 
-    public Produto build() {
+   public Produto build() {
 
-       return Produto.builder()
-               .titulo(titulo)
-                .codigo(codigo)
-                .descricao(descricao)
-                .valorUnitario(valorUnitario)
-                .tempoEntregaMinimo(tempoEntregaMinimo)
-                .tempoEntregaMaximo(tempoEntregaMaximo)
-                .build();
+      return Produto.builder()
+            .titulo(titulo)
+            .codigo(codigo)
+            .descricao(descricao)
+            .valorUnitario(valorUnitario)
+            .tempoEntregaMinimo(tempoEntregaMinimo)
+            .tempoEntregaMaximo(tempoEntregaMaximo)
+            .build();
    }
 
 }

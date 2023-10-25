@@ -5,9 +5,6 @@ import java.time.LocalDate;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.br.CPF;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.ifpe.oxefood.modelo.entregador.Entregador;
@@ -22,25 +19,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EntregadorRequest {
 
+    private String nome;
+
+    private String cpf;
+
     @NotBlank(message = "O Email é de preenchimento obrigatório")
     @Email
     private String email;
 
-    @NotBlank(message = "O Nome é de preenchimento obrigatório")
-    @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
-    private String nome;
+    private String rg;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
 
-    @NotBlank(message = "O CPF é de preenchimento obrigatório")
-    @CPF
-    private String cpf;
-
-    private String rg;
-
-    @NotBlank(message = "O Telefone celular é de preenchimento obrigatório")
-    @Length(min = 8, max = 20, message = "O campo Fone tem que ter entre {min} e {max} caracteres")
     private String foneCelular;
 
     private String foneFixo;

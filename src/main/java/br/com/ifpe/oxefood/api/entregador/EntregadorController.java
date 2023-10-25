@@ -47,7 +47,7 @@ public class EntregadorController {
         return entregadorService.findAll();
     }
 
-    @ApiOperation(value = "Serviço responsável por obter um entregadir referente ao Id passado na URL.")
+    @ApiOperation(value = "Serviço responsável por obter um entregador referente ao Id passado na URL.")
    @ApiResponses(value = {
        @ApiResponse(code = 200, message = "Retorna  o enregador."),
        @ApiResponse(code = 401, message = "Acesso não autorizado."),

@@ -45,7 +45,7 @@ public class Cliente extends EntidadeAuditavel {
     @Column
     private String email;
 
-    @Column(nullable = false, length = 100)
+    @Column( length = 100)
     private String nome;
 
     @Column

@@ -28,19 +28,19 @@ public class Entregador extends EntidadeAuditavel {
         @Column
         private String email;
 
-        @Column(nullable = false, length = 100)
+        @Column
         private String nome;
 
         @Column(name = "DT_NASC")
         private LocalDate dataNascimento;
 
-        @Column(unique = true, nullable = false)
+        @Column
         private String cpf;
 
         @Column
         private String rg;
 
-        @Column(nullable = false)
+        @Column
         private String foneCelular;
 
         @Column

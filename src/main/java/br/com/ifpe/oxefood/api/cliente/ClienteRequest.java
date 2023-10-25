@@ -32,9 +32,9 @@ public class ClienteRequest {
    @NotBlank(message = "A senha é de preenchimento obrigatório")
    private String password;
 
-   @NotNull(message = "O Nome é de preenchimento obrigatório")
-   @NotBlank(message = "O Nome é de preenchimento obrigatório")
-   @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
+   // @NotNull(message = "O Nome é de preenchimento obrigatório")
+   // @NotBlank(message = "O Nome é de preenchimento obrigatório")
+   // @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
    private String nome;
 
    @JsonFormat(pattern = "dd/MM/yyyy")
@@ -48,6 +48,7 @@ public class ClienteRequest {
    @Length(min = 8, max = 20, message = "O campo Fone tem que ter entre {min} e {max} caracteres")
    private String foneCelular;
 
+   @Length(min = 8, max = 20, message = "O campo Fone tem que ter entre {min} e {max} caracteres")
    private String foneFixo;
 
    public Cliente build() {
